@@ -21,6 +21,8 @@ class VT100 {
     void hideCursor();
     void showCursor();
 
+    void drawBox(int row1, int col1, int row2, int col2);
+
   private:
     HardwareSerial &ser;
 };

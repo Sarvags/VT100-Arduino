@@ -54,3 +54,29 @@ void VT100::showCursor() {
   ser.write(27);
   ser.print("[?25h");
 }
+
+void VT100::drawBox(int row1, int col1, int row2, int col2) {
+  // Top and Bottom borders
+  for (int col = col1; col <= col2; col++) {
+    move(row1, col);
+    ser.print("-");
+
+    move(row2, col);
+    ser.print("-");
+  }
+
+  // Left and Right borders
+  for (int row = row1; row <= row2; row++) {
+    move(row, col1);
+    ser.print("|");
+
+    move(row, col2);
+    ser.print("|");
+  }
+
+  // Corners
+  move(row1, col1); ser.print("+");
+  move(row1, col2); ser.print("+");
+  move(row2, col1); ser.print("+");
+  move(row2, col2); ser.print("+");
+}
