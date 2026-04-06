@@ -7,7 +7,7 @@ void VT100::begin(long baud) {
   delay(1000);
 }
 
-void VT100::clear() {
+void VT100::clearScreen() {
   ser.write(27);
   ser.print("[2J");
 }

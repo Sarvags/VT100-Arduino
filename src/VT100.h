@@ -9,7 +9,7 @@ class VT100 {
 
     void begin(long baud);
 
-    void clear();
+    void clearScreen();
     void home();
     void move(int row, int col);
 
