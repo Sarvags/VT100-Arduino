@@ -30,3 +30,27 @@ void VT100::printAt(int row, int col, const String &text) {
   move(row, col);
   ser.print(text);
 }
+
+// NEW FEATURES
+
+void VT100::color(int code) {
+  ser.write(27);
+  ser.print("[");
+  ser.print(code);
+  ser.print("m");
+}
+
+void VT100::reset() {
+  ser.write(27);
+  ser.print("[0m");
+}
+
+void VT100::hideCursor() {
+  ser.write(27);
+  ser.print("[?25l");
+}
+
+void VT100::showCursor() {
+  ser.write(27);
+  ser.print("[?25h");
+}

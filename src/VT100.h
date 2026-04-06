@@ -8,10 +8,18 @@ class VT100 {
     VT100(HardwareSerial &serial);
 
     void begin(long baud);
+
     void clear();
     void home();
     void move(int row, int col);
+
     void printAt(int row, int col, const String &text);
+
+    // NEW FEATURES
+    void color(int code);
+    void reset();
+    void hideCursor();
+    void showCursor();
 
   private:
     HardwareSerial &ser;
